@@ -1,4 +1,5 @@
 name: scan
+# Schedule re-registered Nov 24, 2026 (no scheduled run had fired since the first push).
 
 on:
   schedule:
