@@ -1,0 +1,10 @@
+{
+ "tickers": ["SPY", "QQQ", "IWM", "DIA"],
+ "timezone": "America/New_York",
+ "holidays": ["2026-11-26", "2026-12-25", "2027-01-01", "2027-01-18", "2027-02-15", "2027-03-26", "2027-05-31", "2027-06-18", "2027-07-05", "2027-09-06", "2027-11-25", "2027-12-24"],
+ "half_days": ["2026-11-27", "2026-12-24", "2027-11-26"],
+ "calendar_end": "2027-12-31",
+ "s2e": {"checkpoints": ["11:00", "12:00", "13:00", "14:00", "15:00"], "checkpoint_window_seconds": 599, "r_entry_below": "0.20", "range_floor": "0.005", "ibs_exit_above": "0.50", "max_hold_days": 5, "notional": "100.00", "cost_bp": "5", "exit_window": ["15:40:00", "15:49:59"]},
+ "fire": {"enabled": true, "window": ["15:25:00", "15:42:59"], "max_attempts_per_day": 3, "marker": "SCANNER-BACKUP-START"},
+ "data": {"bar_freshness_seconds": 900}
+}

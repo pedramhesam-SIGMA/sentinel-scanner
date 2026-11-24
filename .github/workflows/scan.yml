@@ -1,0 +1,45 @@
+name: scan
+
+on:
+  schedule:
+    - cron: "*/5 13-21 * * 1-5"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: scan
+  cancel-in-progress: false
+
+jobs:
+  scan:
+    # State lives on main only. A run from any other branch would not see
+    # today's fire record, so it is not allowed to run at all.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Naming the branch makes checkout take its newest commit, not the
+          # commit that was newest when this run was queued.
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Scan
+        env:
+          ROUTINE_FIRE_URL: ${{ secrets.ROUTINE_FIRE_URL }}
+          ROUTINE_FIRE_TOKEN: ${{ secrets.ROUTINE_FIRE_TOKEN }}
+          ALPACA_KEY_ID: ${{ secrets.ALPACA_KEY_ID }}
+          ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+          # Run by the scanner right before a fire call. If it fails, no fire.
+          STATE_PERSIST_CMD: bash scripts/commit_state.sh strict
+        run: python -m scanner.scan
+
+      - name: Commit state
+        if: always()
+        run: bash scripts/commit_state.sh

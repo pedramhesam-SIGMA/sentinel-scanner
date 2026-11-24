@@ -1,0 +1,11 @@
+HALT switch for the SENTINEL cloud scanner.
+
+If a file named HALT (exactly that name, no extension) exists in the repo
+root, the scanner does nothing except write the heartbeat. No paper trades,
+no exit checks, no fire.
+
+To stop the scanner:   copy this file to a new file named HALT and commit it.
+To start it again:     delete the HALT file and commit.
+
+The content of the HALT file does not matter. Only its presence counts.
+While HALT is present, state/heartbeat.json shows status "HALT".
