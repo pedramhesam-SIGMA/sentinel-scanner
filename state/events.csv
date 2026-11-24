@@ -1,0 +1,2 @@
+seq,time_et,date,event,ticker,checkpoint,H,L,P,R,IBS,range_pct,decision,reason,detail
+1,2026-11-24 13:59:28,2026-11-24,fire not configured,,,,,,,,,skipped,ROUTINE_FIRE_URL or ROUTINE_FIRE_TOKEN is not set,

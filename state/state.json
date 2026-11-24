@@ -1,0 +1,24 @@
+{
+ "days": {
+  "2026-11-24": {
+   "notes": [
+    "fire_not_configured"
+   ]
+  }
+ },
+ "fire": {},
+ "fire_config_error": false,
+ "installed_at": "2026-11-24T13:59:28-05:00",
+ "outbox": {
+  "events": [],
+  "trades": []
+ },
+ "positions": {},
+ "seq": 1,
+ "totals": {
+  "closed_trades": 0,
+  "net_dollars": "0",
+  "wins": 0
+ },
+ "version": 1
+}
