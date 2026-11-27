@@ -4,6 +4,11 @@
    "notes": [
     "fire_not_configured"
    ]
+  },
+  "2026-11-27": {
+   "notes": [
+    "half_day"
+   ]
   }
  },
  "fire": {},
@@ -14,7 +19,7 @@
   "trades": []
  },
  "positions": {},
- "seq": 1,
+ "seq": 2,
  "totals": {
   "closed_trades": 0,
   "net_dollars": "0",
